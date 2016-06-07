@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Генератор ответов</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta name="description" content="Теперь не надо выдумывать самому">
+    <meta name="keywords" content="Генератор отмазок, отмазки, отговорки, оправдания">
+    <link rel="author" href="https://github.com/littleguga"><!-- Fow social parsing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Генератор отмазок">
+    <meta property="og:site_name" content="Генератор отмазок">
+    <meta property="og:url" content="https://littleguga.github.io/excuse-generator">
+    <meta property="og:description" content="Теперь не надо выдумывать самому">
+    <meta property="og:image" content="http://littleguga.github.io/excuse-generator/build/img/social_img.png">
+    <meta property="og:image:secure_url" content="https://littleguga.github.io/excuse-generator/build/img/social_img.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630"><!-- Favicons -->
+    <link rel="shortcut icon" href="build/img/favicon/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32" href="build/img/favicon/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="build/img/favicon/152.png"><!-- Styles -->
+    <link rel="stylesheet" href="build/material/material.min.css">
+    <link rel="stylesheet" href="build/css/style.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header id="menu-header" class="mdl-layout__header mdl-color--blue-800">
+        <div class="mdl-layout__header-row"><!-- Title --><span class="mdl-layout-title">Генератор хороших ответов на плохие реплики</span><!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div><!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only"><a id="header-save" href="" class="save hidden mdl-navigation__link"><i class="material-icons">save</i></a>
+            <div for="header-save" class="mdl-tooltip">сохранить</div><a id="header-reset" href="#" class="reset mdl-navigation__link"><i class="material-icons">close</i></a>
+            <div for="header-reset" class="mdl-tooltip">сбросить</div>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer"><span class="mdl-layout-title">Меню</span>
+        <nav class="mdl-navigation"><a id="group1" href="#" class="mdl-navigation__link">Слой буквального смысла</a><a id="group2" href="#" class="mdl-navigation__link">Воздействие на эмоциональные процессы</a><a id="group3" href="#" class="mdl-navigation__link">Собственные эмоциональные процессы</a><a id="group4" href="#" class="mdl-navigation__link">Воздействие на поведение</a><a id="group5" href="#" class="mdl-navigation__link">Понимание другого</a><a id="group6" href="#" class="mdl-navigation__link">Особые</a><a href="#" class="save hidden mdl-navigation__link"><i class="material-icons">save   </i>Сохранить</a><a href="#" class="reset mdl-navigation__link"><i class="material-icons">close   </i>Сброс </a></nav>
+      </div>
+      <main class="mdl-layout__content flex">
+        <div class="container full-width main flex flex-column">
+          <h1 class="text-center main-header">Ответь человеку!</h1>
+          <div class="result-wrap flex flex-main-center flex-cross-start full-width">
+            <div id="step-1" class="mdl-card mdl-shadow--2dp card-result">
+              <div class="mdl-card__title mdl-card--expand flex-center">
+                <h4 id="generator-tip" class="mdl-card__title text-center generator-tip">Человек сказал вам что-то странное, что не выходит из головы...</h4>
+              </div>
+              <div class="mdl-card__actions mdl-card--border flex-center flex-column">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input id="phrase" type="text" class="mdl-textfield__input">
+                  <label for="phrase" class="mdl-textfield__label">Введите то, что вам сказал Человек</label>
+                </div>
+                <button class="save-step mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-800">Запомнить фразу                    </button>
+              </div>
+            </div>
+            <div id="step-2" class="mdl-card mdl-shadow--2dp card-result hidden">
+              <div class="mdl-card__title mdl-card--expand flex-center">
+                <h4 id="generator-tip" class="mdl-card__title text-center">Вы Девочка или Мальчик?</h4>
+              </div>
+              <div class="mdl-card__actions mdl-card--border flex-center flex-column">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label flex-around">
+                  <label for="gender-option-female" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                    <input id="gender-option-female" type="radio" name="gender_option" value="f" class="mdl-radio__button"><span tabindex="1" class="mdl-radio__label">Девочка</span>
+                  </label>
+                  <label for="gender-option-male" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                    <input id="gender-option-male" type="radio" name="gender_option" value="m" class="mdl-radio__button"><span tabindex="1" class="mdl-radio__label">Мальчик</span>
+                  </label>
+                </div>
+                <button class="save-step mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-800">Запомнить пол</button>
+              </div>
+            </div>
+            <div id="step-3" class="mdl-card mdl-shadow--2dp card-result hidden">
+              <div class="mdl-card__title mdl-card--expand mdl-card--border flex-column answers hidden">
+                <h5 class="text-center full-width">Список ответов:</h5>
+                <div class="all-answers mdl-typography--text-left flex flex-main-around flex-wrap">
+                </div>
+              </div>
+              <div class="result-wrapper mdl-card__title mdl-card--expand flex-center">
+                <div class="result mdl-typography--text-left mdl-typography--headline">Здесь будет ответ</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border flex-center flex-column">
+                <h4 class="saved-phrase text-center">То, что сказал человек</h4>
+                <div class="mdl-card__supporting-text mdl-card--border flex-center flex-column">
+                  <h4 class="question-group text-left"><span class="question-group-number"></span><span class="question-group-title"></span></h4>
+                  <h4 class="question-description">Вопрос к реплике</h4>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input id="answer" type="text" class="mdl-textfield__input">
+                  <label for="answer" class="mdl-textfield__label">Введите ответ на реплику Человека</label>
+                </div>
+                <div class="controls flex flex-cross-center full-width">
+                  <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color--blue-800 prev-button invisible"><i class="material-icons">keyboard_arrow_left</i></button>
+                  <button class="get-answer mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-800">Ответить человеку</button>
+                  <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color--blue-800 next-button invisible"><i class="material-icons">keyboard_arrow_right</i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="mdl-mini-footer flex-center text-center full-width">
+            <div class="mdl-mini-footer__left-section">
+              <ul class="mdl-mini-footer__link-list flex-column">
+                <li><span class="icon icon-github"></span><a href="https://github.com/theconscience/excuse-generator">Исходный код на github</a></li>
+              </ul>
+            </div>
+          </footer>
+        </div>
+      </main>
+    </div><!-- Scripts -->
+    <script type="text/javascript" src="build/material/material.min.js"></script>
+    <script type="text/javascript" src="build/js/js.min.js"></script>
+  </body>
+</html>

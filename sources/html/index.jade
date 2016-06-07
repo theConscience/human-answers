@@ -1,0 +1,144 @@
+doctype html
+html(lang="ru")
+    head
+        title Генератор ответов
+        meta(charset="UTF-8")
+        meta(content='width=device-width, initial-scale=1, maximum-scale=1', name='viewport')
+        meta(name='description',
+            content="Теперь не надо выдумывать самому")
+        meta(name='keywords',
+            content="Генератор отмазок, отмазки, отговорки, оправдания")
+        link(rel='author',
+            href='https://github.com/littleguga')
+        <!-- Fow social parsing -->
+        meta(property="og:type",
+            content="website")
+        meta(property="og:title",
+            content="Генератор отмазок")
+        meta(property="og:site_name",
+            content="Генератор отмазок")
+        meta(property="og:url",
+            content="https://littleguga.github.io/excuse-generator")
+        meta(property="og:description",
+            content="Теперь не надо выдумывать самому")
+        meta(property="og:image",
+            content="http://littleguga.github.io/excuse-generator/build/img/social_img.png")
+        meta(property="og:image:secure_url",
+            content="https://littleguga.github.io/excuse-generator/build/img/social_img.png")
+        meta(property="og:image:type",
+            content="image/png")
+        meta(property="og:image:width",
+            content="1200")
+        meta(property="og:image:height",
+            content="630")
+        <!-- Favicons -->
+        link(rel="shortcut icon", href="build/img/favicon/favicon.ico")
+        link(rel="icon", sizes="16x16 32x32", href="build/img/favicon/favicon.ico")
+        link(rel="apple-touch-icon-precomposed", href="build/img/favicon/152.png")
+        <!-- Styles -->
+        link(rel='stylesheet', href='build/material/material.min.css')
+        link(rel='stylesheet', href='build/css/style.min.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    body
+        div.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+            header#menu-header.mdl-layout__header.mdl-color--blue-800
+                div.mdl-layout__header-row
+                    <!-- Title -->
+                    span.mdl-layout-title Генератор хороших ответов на плохие реплики
+                    <!-- Add spacer, to align navigation to the right -->
+                    div.mdl-layout-spacer
+                    <!-- Navigation. We hide it in small screens. -->
+                    nav.mdl-navigation.mdl-layout--large-screen-only
+                        a#header-save.save.hidden.mdl-navigation__link(href="")
+                            i.material-icons save
+                        div.mdl-tooltip(for="header-save") сохранить
+                        a#header-reset.reset.mdl-navigation__link(href="#")
+                            i.material-icons close
+                        div.mdl-tooltip(for="header-reset") сбросить
+            div.mdl-layout__drawer
+                span.mdl-layout-title Меню
+                nav.mdl-navigation
+                    a#group1.mdl-navigation__link(href="#") Слой буквального смысла
+                    a#group2.mdl-navigation__link(href="#") Воздействие на эмоциональные процессы
+                    a#group3.mdl-navigation__link(href="#") Собственные эмоциональные процессы
+                    a#group4.mdl-navigation__link(href="#") Воздействие на поведение
+                    a#group5.mdl-navigation__link(href="#") Понимание другого
+                    a#group6.mdl-navigation__link(href="#") Особые
+                    a.save.hidden.mdl-navigation__link(href="#")
+                        i.material-icons save   
+                        Сохранить
+                    a.reset.mdl-navigation__link(href="#")
+                        i.material-icons close   
+                        Сброс 
+            main.mdl-layout__content.flex
+                div.container.full-width.main.flex.flex-column
+                    h1.text-center.main-header Ответь человеку!
+                    div.result-wrap.flex.flex-main-center.flex-cross-start.full-width
+                        //- button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored.mdl-color--blue-800.prev-button.invisible
+                        //-     i.material-icons keyboard_arrow_left
+
+                        div#step-1.mdl-card.mdl-shadow--2dp.card-result
+                            div.mdl-card__title.mdl-card--expand.flex-center
+                                h4#generator-tip.mdl-card__title.text-center.generator-tip Человек сказал вам что-то странное, что не выходит из головы...
+                            div.mdl-card__actions.mdl-card--border.flex-center.flex-column
+                                div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                                    input#phrase(type="text").mdl-textfield__input
+                                    label(for="phrase").mdl-textfield__label Введите то, что вам сказал Человек
+                                button.save-step.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.mdl-color--blue-800 Запомнить фразу                    
+                        
+                        div#step-2.mdl-card.mdl-shadow--2dp.card-result.hidden
+                            div.mdl-card__title.mdl-card--expand.flex-center
+                                h4#generator-tip.mdl-card__title.text-center Вы Девочка или Мальчик?
+                            div.mdl-card__actions.mdl-card--border.flex-center.flex-column
+                                div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.flex-around
+                                    label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="gender-option-female")
+                                        input#gender-option-female.mdl-radio__button(type="radio" name="gender_option" value="f")
+                                        span.mdl-radio__label(tabindex="1") Девочка
+                                    label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="gender-option-male")
+                                        input#gender-option-male.mdl-radio__button(type="radio" name="gender_option" value="m")
+                                        span.mdl-radio__label(tabindex="1") Мальчик
+                                button.save-step.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.mdl-color--blue-800 Запомнить пол
+                                
+                        div#step-3.mdl-card.mdl-shadow--2dp.card-result.hidden
+                            div.mdl-card__title.mdl-card--expand.mdl-card--border.flex-column.answers.hidden
+                                h5.text-center.full-width Список ответов:
+                                div.all-answers.mdl-typography--text-left.flex.flex-main-around.flex-wrap
+                                    //- ul.answers-list.answers-group-1.mdl-list
+                                    //- ul.answers-list.answers-group-2.mdl-list
+                                    //- ul.answers-list.answers-group-3.mdl-list
+                                    //- ul.answers-list.answers-group-4.mdl-list
+                                    //- ul.answers-list.answers-group-5.mdl-list
+                            div.result-wrapper.mdl-card__title.mdl-card--expand.flex-center
+                                div.result.mdl-typography--text-left.mdl-typography--headline Здесь будет ответ
+                            div.mdl-card__actions.mdl-card--border.flex-center.flex-column
+                                h4.saved-phrase.text-center То, что сказал человек
+                                div.mdl-card__supporting-text.mdl-card--border.flex-center.flex-column
+                                    h4.question-group.text-left
+                                        span.question-group-number
+                                        span.question-group-title
+                                    h4.question-description Вопрос к реплике
+                                div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                                    input#answer(type="text").mdl-textfield__input
+                                    label(for="answer").mdl-textfield__label Введите ответ на реплику Человека
+                                div.controls.flex.flex-cross-center.full-width
+                                    button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored.mdl-color--blue-800.prev-button.invisible
+                                        i.material-icons keyboard_arrow_left
+                                    button.get-answer.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.mdl-color--blue-800 Ответить человеку
+                                    button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored.mdl-color--blue-800.next-button.invisible
+                                        i.material-icons keyboard_arrow_right
+
+                        //- button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored.mdl-color--blue-800.next-button.invisible
+                        //-     i.material-icons keyboard_arrow_right
+
+                    footer.mdl-mini-footer.flex-center.text-center.full-width
+                        div.mdl-mini-footer__left-section
+                            ul.mdl-mini-footer__link-list.flex-column
+                                //- li
+                                //-     a(href="https://vk.com/public51016572")
+                                //-         img.design-logo(src="build/img/design-logo.png")
+                                li
+                                    span.icon.icon-github
+                                    a(href="https://github.com/theconscience/excuse-generator") Исходный код на github
+        <!-- Scripts -->
+        script(type='text/javascript' src='build/material/material.min.js')
+        script(type='text/javascript' src='build/js/js.min.js')
